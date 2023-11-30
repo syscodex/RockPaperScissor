@@ -5,6 +5,7 @@ function playRound(playerSelection, computerSelection) {
     console.log("Computer chose: " + computerSelection);
     
     // It is accepting string even though its not on the choices
+    // TRY AGAIN TOMORROW
     if (
         (playerSelection === "ROCK" && computerSelection === "SCISSOR") ||
         (playerSelection === "PAPER" && computerSelection === "ROCK") ||
@@ -17,8 +18,10 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "SCISSOR" && computerSelection === "ROCK")
     ) {
         return "You lose!";
-    } else {
+    } else if (playerSelection === computerSelection) {
         return "its a draw!";
+    } else {
+        return "Invalid input. Please enter ROCK , PAPER OR SCISSOR";
     }
 }
 
@@ -35,13 +38,37 @@ function getComputerChoice (){
 
 }
 
+function game() {
+    let validChoices = ["ROCK", "PAPER", "SCISSOR"];
+    let playerScore = 0;
+    let computerScore = 0;
 
-let computerChoice = getComputerChoice();
-let playerChoice = prompt("choose between rock paper and scissor").toUpperCase();
+    for (let round = 1; round <= 5; round++) {
+        let playerChoice = prompt(`Round ${round}: Choose between Rock, Paper, or Scissor`).toUpperCase();
+
+        // Check if the user input is valid
+        while (!validChoices.includes(playerChoice)) {
+            alert("Invalid choice. Please choose Rock, Paper, or Scissor.");
+            playerChoice = prompt("Choose between Rock, Paper, or Scissor").toUpperCase();
+        }
+
+        let computerChoice = getComputerChoice();
+
+        let result = playRound(playerChoice, computerChoice);
+        console.log(result);
+
+        if (result.includes("win")) {
+            playerScore++;
+        } else if (result.includes("lose")) {
+            computerScore++;
+        }
+    } }
+game();
 
 
-let result = playRound(playerChoice, computerChoice);
-console.log(result);
+
+    
+
 
 
 
