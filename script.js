@@ -37,11 +37,15 @@ function getComputerChoice (){
     return randomlyChoice;
 
 }
-
-function game() {
-    let validChoices = ["ROCK", "PAPER", "SCISSOR"];
+   //Outside the function to access it
     let playerScore = 0;
     let computerScore = 0;
+    let validChoices = ["ROCK", "PAPER", "SCISSOR"];
+
+
+function game() {
+
+    
 
     for (let round = 1; round <= 5; round++) {
         let playerChoice = prompt(`Round ${round}: Choose between Rock, Paper, or Scissor`).toUpperCase();
@@ -62,9 +66,19 @@ function game() {
         } else if (result.includes("lose")) {
             computerScore++;
         }
-    } }
-game();
+    } 
 
+    if (playerScore > computerScore) {
+        console.log(`You win the game with a score of ${playerScore}-${computerScore}!`);
+    } else if (playerScore < computerScore) {
+        console.log(`You lose the game with a score of ${playerScore}-${computerScore}.`);
+    } else {
+        console.log(`The game is a draw with a score of ${playerScore}-${computerScore}.`);
+    }
+ }
+
+game();
+console.log("Final Player Score:", playerScore + " Final Computer Score", computerScore );
 
 
     
