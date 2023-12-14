@@ -21,4 +21,4 @@ This project is a simple implementation of the classic Rock, Paper, Scissors gam
 
 - `index.html`: The main HTML file that contains the structure of the game.
 - `style.css`: The stylesheet for styling the game interface.
-- `script.js`: The JavaScript file containing the game logic.
+- `game-function.js`: The JavaScript file containing the game logic.
